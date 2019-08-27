@@ -35,11 +35,9 @@ def notebook_to_page(notebook_file, confluence_url, username=None, password=None
         Include the MathJax script and configuration (default: False)
     extra_labels: list, optional
         Additional labels to add to the page (default: None)
+    no_auth: bool, optional
+        Disable the use of username and password (default: False)
     """
-    if username is None:
-        username = getpass.getuser()
-    if password is None:
-        password = getpass.getpass('Confluence password for {}:'.format(username))
     if extra_labels is None:
         extra_labels = []
 
