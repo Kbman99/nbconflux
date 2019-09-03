@@ -21,6 +21,7 @@ def main(argv=None):
     parser.add_argument('--exclude-toc', action='store_true', help='Do not generate a table of contents')
     parser.add_argument('--exclude-ipynb', action='store_true', help='Do not attach the notebook to the page')
     parser.add_argument('--exclude-style', action='store_true', help='Do not include the Jupyter base stylesheet')
+    parser.add_argument('--exclude-input', action='store_true', help='Do not include input cells in exported stylesheet')
     parser.add_argument('--include-mathjax', action='store_true', help='Enable MathJax on the page')
     parser.add_argument('--extra-labels', nargs='+', type=str, help='Additional labels to add to the page')
 
@@ -60,7 +61,7 @@ def main(argv=None):
     notebook_to_page(args.notebook, args.url, username, password,
                      generate_toc=not args.exclude_toc, attach_ipynb=not args.exclude_ipynb,
                      enable_style=not args.exclude_style, enable_mathjax=args.include_mathjax,
-                     extra_labels=args.extra_labels, cookies=cookies)
+                     extra_labels=args.extra_labels, exclude_input=args.exclude_input, cookies=cookies)
 
 if __name__ == '__main__':
     main()
